@@ -1,12 +1,40 @@
-# React + Vite
+# 📝 React Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and elegant **Todo List** application built with **React**, using **Context API** for state management and **localStorage** for persistence. This project helps users manage their daily tasks efficiently.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Add new todos
+- 📝 Update existing todos
+- ❌ Delete todos
+- 🎯 Mark todos as completed/incomplete
+- 💾 Persists data using localStorage
+- 🌙 Clean UI with Tailwind CSS
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**
+- **Context API**
+- **Tailwind CSS**
+- **UUID** (to generate unique IDs)
+- **LocalStorage API** (to store data in browser)
+
+## 📁 Folder Structure
+
+src/ ├── components/ │ ├── TodoForm.jsx │ └── TodoList.jsx ├── contexts/ │ └── index.js (Context Provider) ├── App.jsx └── main.jsx
+
+
+## 🧠 Key Learnings
+
+- Used the **callback form of `setState`** to safely update todos when previous state is required:
+  ```js
+  setTodos(prev => [...prev, newTodo]);
+Context API was used to avoid prop drilling and share todos and handlers across components.
+
+localStorage sync:
+
+Loaded existing todos on first mount using getItem
+
+Synced todos to localStorage on every state update using setItem
+
+Prevented overwriting localStorage by conditionally checking if existing data is available on mount
